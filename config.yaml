@@ -1,0 +1,27 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: ~/dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_polybar:
+    src: config/polybar
+    dst: ~/.config/polybar
+  f_starship.toml:
+    src: config/starship.toml
+    dst: ~/.config/starship.toml
+  f_config.conf:
+    src: config/neofetch/config.conf
+    dst: ~/.config/neofetch/config.conf
+  d_wallpapers:
+    src: Pictures/wallpapers
+    dst: ~/Pictures/wallpapers
+profiles:
+  arch-xfce:
+    dotfiles:
+      - f_polybar
+      - d_wallpapers
