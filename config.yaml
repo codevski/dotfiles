@@ -17,6 +17,9 @@ dotfiles:
   f_config.conf:
     src: config/neofetch/config.conf
     dst: ~/.config/neofetch/config.conf
+  f_gtk-3.css:
+    src: config/gtk-3.0/gtk.css
+    dst: ~/.config/gtk-3.0/gtk.css
   d_wallpapers:
     src: Pictures/wallpapers
     dst: ~/Pictures/wallpapers
@@ -25,3 +28,4 @@ profiles:
     dotfiles:
       - f_polybar
       - d_wallpapers
+      - f_gtk-3.css

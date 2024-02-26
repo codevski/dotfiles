@@ -17,11 +17,11 @@ XFCE:
 - VS Code: [Gruvbox Theme](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox)
 - Firefox: [Gruvbox](https://addons.mozilla.org/en-US/firefox/addon/gruvboxgruvboxgruvboxgruvboxgr/)
 - Dock: [xfce4-docklike-plugin](https://docs.xfce.org/panel-plugins/xfce4-docklike-plugin/start)
-- Optionals: [BreakTimer](https://breaktimer.app/)
+- Optionals: [BreakTimer](https://breaktimer.app/), [Firefox Sidetabs](https://github.com/jeb5/Sidetabs)
 
 No configs for panel, as I use [xfce4-docklike-plugin](https://docs.xfce.org/panel-plugins/xfce4-docklike-plugin/start)
 
-Currently xfce4 terminal has a bug where presets are not applied. Issue [here](https://forum.xfce.org/viewtopic.php?id=17269)
+Currently xfce4 terminal has a bug where presets are not applied. [Forum](https://forum.xfce.org/viewtopic.php?id=17269), [Issue](https://gitlab.xfce.org/apps/xfce4-terminal/-/issues/300)
 
 `wallpapers` contain some of the wallpapers I have used. You can 'gruvify' any wallpaper with [com0570](https://github.com/AngelJumbo/gruvbox-wallpapers).
 

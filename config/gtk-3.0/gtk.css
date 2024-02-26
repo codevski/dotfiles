@@ -1,0 +1,15 @@
+@import 'colors.css';
+/* Rounded edges for panel */
+.xfce4-panel.horizontal{
+  border:0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: rgba(27,34,36,0.92); /* semi-tranparency is only known way to have 
+                                              the border-radius work consistently. */
+}
+#XfcePanelWindowWrapper{
+  background-color: rgba(27,34,36,0.92); /* this does the Whisker menu button and tray background. */
+}
+#whiskermenu-button{
+  background-color: transparent;         /* whisker menu button has two background layers */
+}
