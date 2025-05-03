@@ -25,6 +25,7 @@
         {
           nixpkgs = commonNixpkgsConfig;
         }
+        ./modules/default.nix
         ./systems/macos/default.nix
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
@@ -40,6 +41,7 @@
         {
           nixpkgs = commonNixpkgsConfig;
         }
+        ./modules/default.nix
         ./systems/desktop/default.nix
         home-manager.nixosModules.home-manager
         {
@@ -56,6 +58,7 @@
         {
           nixpkgs = commonNixpkgsConfig;
         }
+        ./modules/default.nix
         ./systems/server/default.nix
         home-manager.nixosModules.home-manager
         {
