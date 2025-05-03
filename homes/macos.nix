@@ -1,6 +1,10 @@
 { pkgs, lib, ... }:
 {
-  imports = [ ./common.nix ../modules/home-manager/git/default.nix ];
+  imports = [
+    ./common.nix
+    ../modules/home-manager/git/default.nix
+    ../modules/home-manager/kitty/default.nix
+  ];
 
   home.packages = with pkgs; [ lazygit ];
 
