@@ -10,10 +10,21 @@
   };
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  let
+    # Common nixpkgs configuration for all systems
+    commonNixpkgsConfig = {
+      config = {
+        allowUnfree = true; # Allow unfree packages globally
+      };
+    };
+  in
   {
     darwinConfigurations."Codevski-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
+        {
+          nixpkgs = commonNixpkgsConfig;
+        }
         ./systems/macos/default.nix
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
@@ -26,6 +37,9 @@
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        {
+          nixpkgs = commonNixpkgsConfig;
+        }
         ./systems/desktop/default.nix
         home-manager.nixosModules.home-manager
         {
@@ -39,6 +53,9 @@
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        {
+          nixpkgs = commonNixpkgsConfig;
+        }
         ./systems/server/default.nix
         home-manager.nixosModules.home-manager
         {
@@ -52,7 +69,12 @@
     # Optional: Define home-manager configurations for standalone use
     homeConfigurations.codevski = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-      modules = [ ./homes/macos.nix ]; # Adjust based on machine
+      modules = [
+        {
+          nixpkgs = commonNixpkgsConfig;
+        }
+        ./homes/macos.nix
+      ];
     };
   };
 }
