@@ -6,4 +6,5 @@ with pkgs; [
   aerospace
   vesktop
   spotify
+  tmux
 ]

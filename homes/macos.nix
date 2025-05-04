@@ -4,6 +4,7 @@
     ./common.nix
     ../modules/home-manager/git/default.nix
     ../modules/home-manager/kitty/default.nix
+    ../modules/home-manager/tmux/default.nix
   ];
 
   home.packages = with pkgs; [

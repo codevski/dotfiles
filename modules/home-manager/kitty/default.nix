@@ -7,6 +7,7 @@
 {
   home.packages = with pkgs; [
     maple-mono.NF
+    jetbrains-mono
   ];
   programs.kitty = {
     enable = true;
@@ -38,7 +39,8 @@
     themeFile = "Grape";
 
     font = {
-      name = "Maple Mono";
+      name = "JetBrainsMono Nerd Font";
+      # name = "Maple Mono";
       size = 14;
     };
   };
