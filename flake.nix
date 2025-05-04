@@ -7,9 +7,10 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, zen-browser, ... } @ inputs:
   let
     # Common nixpkgs configuration for all systems
     commonNixpkgsConfig = {
@@ -21,6 +22,7 @@
   {
     darwinConfigurations."Codevski-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       system = "x86_64-darwin";
+      specialArgs = { inherit inputs; };
       modules = [
         {
           nixpkgs = commonNixpkgsConfig;
@@ -30,6 +32,7 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-darwin"; };
           home-manager.users.codevski = import ./homes/macos.nix;
         }
       ];
@@ -37,6 +40,7 @@
 
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         {
           nixpkgs = commonNixpkgsConfig;
@@ -47,6 +51,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
           home-manager.users.codevski = import ./homes/desktop.nix;
         }
       ];
@@ -72,6 +77,7 @@
     # Optional: Define home-manager configurations for standalone use
     homeConfigurations.codevski = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+      extraSpecialArgs = { inherit inputs; system = "x86_64-darwin"; };
       modules = [
         {
           nixpkgs = commonNixpkgsConfig;

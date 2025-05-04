@@ -6,7 +6,9 @@
     ../modules/home-manager/kitty/default.nix
   ];
 
-  home.packages = with pkgs; [ lazygit ];
+  home.packages = with pkgs; [
+    lazygit
+  ];
 
   programs.zsh = {
     initContent = ''

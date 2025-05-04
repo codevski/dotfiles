@@ -2,14 +2,15 @@
 { pkgs, system, ... }:
 {
   # List packages installed in system profile
-  environment.systemPackages = with pkgs; [
-    vim
-    kitty
-    zed-editor
-    aerospace
-    vesktop
-    spotify
-  ];
+  environment.systemPackages = with pkgs; import ./packages.nix { inherit pkgs; };
+  # environment.systemPackages = with pkgs; [
+  #   vim
+  #   kitty
+  #   zed-editor
+  #   aerospace
+  #   vesktop
+  #   spotify
+  # ];
 
   # Allow Determinate Systems daemon to work over nix
   nix.enable = false;
