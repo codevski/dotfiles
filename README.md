@@ -50,3 +50,7 @@ Unified configuration for macOS, Linux desktop, and home server.
 Errors:
   https://github.com/zhaofengli/nix-homebrew/issues/61
   need to run `brew upgrade --greedy` every once awhile.
+
+  `Homebrew wont get installed or unknown directory`
+  Needed to delete this folder
+  `sudo rm /usr/local/.managed_by_nix_darwin`
