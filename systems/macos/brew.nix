@@ -19,6 +19,7 @@
       "nikitabobko/tap/aerospace"
       "syncthing"
       "obsidian"
+      "radiola"
     ];
   };
 }
