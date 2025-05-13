@@ -9,15 +9,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-        # Optional: Declarative tap management
-        homebrew-core = {
-            url = "github:homebrew/homebrew-core";
+      # Optional: Declarative tap management
+      homebrew-core = {
+          url = "github:homebrew/homebrew-core";
+          flake = false;
+      };
+      homebrew-cask = {
+          url = "github:homebrew/homebrew-cask";
+          flake = false;
+      };
+      nikitabobko-tap = {
+            url = "github:nikitabobko/homebrew-tap";
             flake = false;
-        };
-        homebrew-cask = {
-            url = "github:homebrew/homebrew-cask";
-            flake = false;
-        };
+          };
+
+      # homebrew-bundle = {
+      #     url = "github:homebrew/homebrew-bundle";
+      #     flake = false;
+      #   };
   };
 
   outputs = {
@@ -29,6 +38,8 @@
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
+    nikitabobko-tap,
+    # homebrew-bundle,
     ...
   } @ inputs:
   let
@@ -54,15 +65,18 @@
             enableRosetta = false;
             # User owning the Homebrew prefix
             user = "codevski";
+            autoMigrate = true;
             # Optional: Declarative tap management
             taps = {
-            "homebrew/homebrew-core" = homebrew-core;
-            "homebrew/homebrew-cask" = homebrew-cask;
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+              "nikitabobko/tap" = nikitabobko-tap;
+              # "homebrew/homebrew-bundle" = homebrew-bundle;
             };
             # Optional: Enable fully-declarative tap management
             #
             # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-            mutableTaps = true;
+            mutableTaps = false;
         };
         }
         ./modules/default.nix

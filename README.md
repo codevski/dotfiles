@@ -46,3 +46,7 @@ Unified configuration for macOS, Linux desktop, and home server.
   - `default.nix`: Aggregates custom packages.
   - *Purpose*: Defines custom software or scripts (e.g., switch-home, my-script) runnable via nix run .#my-script. Not for standard packages like spotify or kitty.
 - `flake.nix`: Unified flake definition.
+
+Errors:
+  https://github.com/zhaofengli/nix-homebrew/issues/61
+  need to run `brew upgrade --greedy` every once awhile.
