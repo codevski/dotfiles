@@ -5,6 +5,7 @@ with pkgs; [
   zed-editor
   aerospace
   vesktop
-  spotify
   tmux
+  super-productivity
+  element-desktop
 ]

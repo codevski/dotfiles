@@ -1,6 +1,11 @@
 # ~/nix-config/systems/macos/configuration.nix
 { pkgs, system, ... }:
 {
+  # Import Homebrew configuration
+    imports = [
+      ./brew.nix
+    ];
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; import ./packages.nix { inherit pkgs; };
   # environment.systemPackages = with pkgs; [
