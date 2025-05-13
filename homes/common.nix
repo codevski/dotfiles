@@ -10,7 +10,8 @@
   home.packages = with pkgs; [ htop neovim git home-manager ];
   programs.zsh = {
     enable = true;
-    shellAliases = { ll = "ls -l"; gs = "git status"; };
+    oh-my-zsh.enable = true;
+    shellAliases = { ll = "ls -l"; gs = "git status"; lg = "lazygit"; };
   };
   home.file.".config/nvim/init.vim".text = ''
     set number
